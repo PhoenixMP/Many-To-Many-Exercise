@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Create a Tag</h1>
+
+
+<form action="/tags/new" , method="POST">
+    <div>
+        <label for="tag-name">Tag Name</label>
+        <input type="text" id="Tag Name" placeholder="Enter a name for the tag" name="tag-name">
+
+    </div>
+
+    <button type="submit" style="display:inline-block; background-color: green; color:white">Save</button>
+    </div>
+    <div style="display:inline-block">
+        <a href="/tags"><button type="button"
+                style="display:inline-block; background-color: white; color:rgb(78, 107, 222)">Cancel</button></a>
+    </div>
+</form>
+
+{% endblock %}

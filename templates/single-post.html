@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>{{post.title}}</h1>
+<div>{{post.content}}</div>
+<div><i>By {{post.usr.full_name}} on {{post.format_date}}</i></div>
+<div>{% for tag in tags%}
+        <a href="/tags/{{ tag.id }}"><button type="button" style="background-color: white; color:rgb(78, 107,
+                        222)">{{tag.name}}</button></a>
+        {% endfor %}
+</div>
+
+
+<p>
+<div style="display:inline-block">
+        <a href="/posts/{{ post.id }}/edit"><button type="button"
+                        style="display:inline-block; background-color: white; color:rgb(78, 107, 222)">Edit</button></a>
+        <form action="/posts/{{ post.id }}/delete" , method="POST" , style="display:inline-block">
+                <input type="submit" value="Delete" name="delete-user" style="color: white; background-color:red;" />
+        </form>
+</div>
+</p>
+
+
+{% endblock %}

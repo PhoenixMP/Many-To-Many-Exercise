@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<img src={{user.image_url}} width="200" , height="200" , style="display:inline-block;">
+<div style="display:inline-block">
+    <h1 style="display:inline-block; text-align: center;">{{user.full_name}}</h1>
+    <div>
+        <form action="/users/{{user.id}}/edit" , style="display:inline-block">
+            <input type="submit" value="Edit" name="edit-user" style="color: white; background-color:blue;" />
+        </form>
+        <form action="/users/{{user.id}}/delete" , method="POST" , style="display:inline-block">
+            <input type="submit" value="Delete" name="delete-user" style="color: white; background-color:red;" />
+        </form>
+    </div>
+
+    <h2>Posts</h2>
+    <div>
+        <ul>
+            {% for post in posts %}
+            <li><a href="/posts/{{ post.id }}">{{post.title}} {{post.format_date}}</a></li>
+            {% endfor %}
+
+            <form action="/users/{{user.id}}/posts/new" , style="display:inline-block">
+                <input type="submit" value="Add Post" name="add-post" style="color: white; background-color:blue;" />
+            </form>
+    </div>
+</div>
+
+
+{% endblock %}

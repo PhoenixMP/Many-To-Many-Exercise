@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Users</h1>
+
+<ul>
+    {% for user in users %}
+    <li><a href="/users/{{ user.id }}">{{user.full_name}}</a></li>
+    {% endfor %}
+</ul>
+<form action="/users/new">
+    <input type="submit" value="Add user" name="add-user" style="color:white; background-color:rgb(82, 82, 82)" />
+</form>
+
+
+{% endblock %}

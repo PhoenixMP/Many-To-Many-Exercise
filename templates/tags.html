@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Tags</h1>
+
+<ul>
+    {% for tag in tags %}
+    <li><a href="/tags/{{tag.id }}">{{tag.name}}</a></li>
+    {% endfor %}
+</ul>
+<form action="/tags/new">
+    <input type="submit" value="Add tag" name="add-tag" style="color:white; background-color:rgb(65, 175, 179)" />
+</form>
+
+
+{% endblock %}
